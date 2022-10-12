@@ -38,3 +38,12 @@ final_result = multiply2( 12, 2, 3, 5, 6 )
 print(final_result)
 
 
+#  if we want that some arguments are independent and some are inset tuple the we write arguments in function parameters
+
+def add( num1, num2 , *numbers ):
+    print(num1, num2)
+    print(numbers)
+
+add( 3, 4, 5, 6, 7 )
+
+
