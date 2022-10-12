@@ -141,6 +141,9 @@ for i in range( num ) :
     
 """
 
+# Due Problem solving 
+
+# https://pynative.com/python-basic-exercise-for-beginners/
 
     
 
