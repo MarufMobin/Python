@@ -145,6 +145,41 @@ for i in range( num ) :
 
 # https://pynative.com/python-basic-exercise-for-beginners/
 
+# 5 No Problem Soluction 
+""" 
+num = int(input('Please give me a list size : '))
+number_x = []
+while num > 0 :
+    number_x.append( int(input('Give me number : ')))
+    num -= 1
+
+if number_x[0] == number_x[-1] :
+    print('result is True')
+else :
+    print('result is False')
+
+ """
+
+    
+# Exercise 6: Display numbers divisible by 5 from a list 
+""" 
+
+num = int( input('Please give me a list Size : '))
+
+my_list = []
+while num != 0 :
+    my_list.append(int(input('Give me a Value : ')))
+    num -= 1
+
+
+for elem in my_list:
+    if elem % 5 == 0 :
+        print(elem)
+     
+"""
+    
+
+
     
 
 
