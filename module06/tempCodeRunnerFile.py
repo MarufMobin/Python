@@ -1,0 +1,1 @@
+PyWallpaper.change_wallpaper('C:\Users\Md Maruf\Desktop\python\module06\apod.png')
