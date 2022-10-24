@@ -24,6 +24,9 @@ class Person:
     def __len__(self):
         return self.height
 
+    def __repr__(self) :
+        return f'Name : {self.name} Age : {self.age} Money : {self.money}'
+
 maruf = Person( 'Maruf Mobin', 22, 300 , 68 )
 jabbar = Person('Abdul Jabbar', 21, 400 )
 
@@ -41,4 +44,4 @@ friends = [45, 65, 98, 12,32]
 # print(len(friends))
 print(len(maruf))
 print(len(jabbar))
-
+print(maruf)    
