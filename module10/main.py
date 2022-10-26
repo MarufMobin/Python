@@ -121,13 +121,16 @@ class Window( QWidget ):
         self.dt = now.strftime("%m-%d-%y, %H-%M-%S")
 
 
-# Assets Path Decleration 
-cap_icon_path = 'assets/camera.png'
-rec_icon_path = 'assets/video-camera.png'
-stop_icon_path = 'assets/stop.png'
 
-# Run
-app = QApplication( sys.argv )
-win = Window()
-sys.exit(app.exec_())
+if __name__ == '__main__':
+    
+    # Assets Path Decleration 
+    cap_icon_path = 'assets/camera.png'
+    rec_icon_path = 'assets/video-camera.png'
+    stop_icon_path = 'assets/stop.png'
+
+    # Run
+    app = QApplication( sys.argv )
+    win = Window()
+    sys.exit(app.exec_())
 
