@@ -12,3 +12,4 @@ class DericedClass(BaseClass):
 
 # 1. Single Level inheritance 
 # 2. Multi level inheritance 
+# 3. Multiple inheritance 
