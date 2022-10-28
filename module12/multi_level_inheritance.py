@@ -35,6 +35,10 @@ class MiniBus( Bus ):
     def __init__(self):
         print('This is mini Bus Created')
         super().__init__( 'Mini Mini', 'DHA125', 1200000, 50, 450 )
+        # Bus.__init__( self, 'Mini Mini', 'DHA125', 1200000, 50, 450 )
+        # super().sell_ticket('Bappa Raj', 1, 1000)
+        # Bus.sell_ticket(self, 'Bappa Raj', 1, 1000)
+
 
 
 class Ticket:

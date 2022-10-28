@@ -14,3 +14,6 @@ class DericedClass(BaseClass):
 # 2. Multi level inheritance ( Grandpa --> Parent --> child )
 # 3. Multiple inheritance ( Father , Mother : child --> ( father , mother ) )
 # 4. Hierarchical inheritance ( father : me , brother, sister ( me--> father , brother --> father , sister --> father ) )
+# 5. Hybrid inheritance 
+
+# We are using inheritance For using DRY Consept -> DO NOT REPEAT YOUR SELF 
