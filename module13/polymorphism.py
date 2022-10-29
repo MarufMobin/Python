@@ -5,6 +5,8 @@
 # print( 'Hello' + 'Bondhu' )
 # print([ 46 , 68 ] + [ 12 , 87 ] )
 
+# Method Over Riding 
+
 class Animal:
     def __init__( self, name ):
         self.name = name
