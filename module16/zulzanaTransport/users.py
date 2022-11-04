@@ -2,7 +2,7 @@ import hashlib
 from brta import BRTA
 from vehicles import Car, Bike, Cng
 from ride_manager import uber
-
+from random import random,randint
 
 license_authority = BRTA()
 
@@ -13,7 +13,7 @@ class User:
         pwd_encrypted = hashlib.md5(password.encode()).hexdigest()
 
         with open('user.txt', 'w') as file:
-            file.write(f'{email} {pwd_encrypted}')
+            file.write(f'{email} {pwd_encrypted} ')
         file.close()
 
         print(f'{self.name} Successfully user Created')
@@ -77,15 +77,15 @@ class Driver(User):
         if self.valid_driver is True:
             if vehicle_type == 'car':
                 new_vehicle = Car(vehicle_type, license_plate, rate, self.email)
-                uber.add_a_vehicle( 'car',new_vehicle )
+                uber.add_a_vehicle( vehicle_type,new_vehicle )
 
             elif vehicle_type == 'bike':
                 new_vehicle = Bike( vehicle_type, license_plate, rate , self.email )
-                uber.add_a_vehicle('bike',new_vehicle)
+                uber.add_a_vehicle( vehicle_type,new_vehicle)
 
             else :
                 new_vehicle = Cng(vehicle_type, license_plate, rate, self.email )
-                uber.add_a_vehicle('cng', new_vehicle )
+                uber.add_a_vehicle( vehicle_type, new_vehicle )
 
         else:
             print('You are not a valid driver')
@@ -95,15 +95,25 @@ class Driver(User):
         self.location = destination
         
 
-hero = User('Hero Alom','hero@alom.com','heorOhHero')
-hero.log_in('hero@alom.com','heroOhHero')
 
-kuber = Driver('khuber maji','khuber@maji.com', 'kopilaJaisna', 54, 4556)
+rider1 = Rider('rider1', 'rider1@gmail.com', 'rider1', randint(0,100), 5000 )
+rider2 = Rider('rider2', 'rider2@gmail.com', 'rider2', randint(0,100), 5000 )
+rider3 = Rider('rider3', 'rider3@gmail.com', 'rider3', randint(0,100), 5000 )
 
-result = license_authority.validate_license(kuber.email, kuber.license)
-print(result)
+driver1 = Driver('driver1', 'driver1@gmail.com', 'driver1', randint(0,100), 5645 )
+driver1.take_driving_test()
+driver1.register_a_vehicle('car', 7245,10)
 
+driver2 = Driver('driver2', 'driver2@gmail.com', 'driver2', randint(0,100), 5645 )
+driver2.take_driving_test()
+driver2.register_a_vehicle('car',1245,10)
 
-result = license_authority.validate_license(kuber.email, kuber.license)
-kuber.take_driving_test()
-print(result)
+driver3 = Driver('driver3', 'driver3@gmail.com', 'driver3', randint(0,100), 5645 )
+driver3.take_driving_test()
+driver3.register_a_vehicle('car',2145,10)
+
+driver4 = Driver('driver4', 'driver4@gmail.com', 'driver4', randint(0,100), 5645 )
+driver4.take_driving_test()
+driver4.register_a_vehicle('car',3245,10)
+
+print(uber.get_available_cars())
