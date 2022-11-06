@@ -102,7 +102,8 @@ class Driver(User):
                 uber.add_a_vehicle( vehicle_type, new_vehicle )
 
         else:
-            print('You are not a valid driver')
+            # print('You are not a valid driver')
+            pass 
 
     def start_a_trip(self, destination, fare):
         self.earning += fare
@@ -110,7 +111,7 @@ class Driver(User):
         
 
 
-rider1 = Rider('rider1', 'rider1@gmail.com', 'rider1', randint(0, 30), 5000 )
+rider1 = Rider('rider1', 'rider1@gmail.com', 'rider1', randint(0, 30), 1000 )
 rider2 = Rider('rider2', 'rider2@gmail.com', 'rider2', randint(0, 30), 5000 )
 rider3 = Rider('rider3', 'rider3@gmail.com', 'rider3', randint(0, 30), 5000 )
 
@@ -121,4 +122,7 @@ for i in range(0, 100):
 
 
 print(uber.get_available_cars())
-uber.find_a_vahicle(rider1,'car',90)
+uber.find_a_vahicle(rider1,'car', randint(1, 100))
+uber.find_a_vahicle(rider1,'car', randint(1, 100))
+uber.find_a_vahicle(rider1,'car', randint(1, 100))
+uber.find_a_vahicle(rider1,'car', randint(1, 100))
