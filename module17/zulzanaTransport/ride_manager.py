@@ -1,6 +1,8 @@
 class RideManager:
     def __init__(self) -> None:
         print('Ride Manager Activated')
+        self.__income = 0
+        self.__trip_history = []
         self.__available_cars  = []
         self.__available_bikes  = []
         self.__available_cng  = []
@@ -16,8 +18,13 @@ class RideManager:
     def get_available_cars(self):
         return self.__available_cars 
 
+    def total_income( self ):
+        return self.__income
+
+    def trip_history( self ):
+        return self.__trip_history
+
     def find_a_vahicle(self, rider, vehicle_type,  destination ):
-        print('looking for a car')
         if vehicle_type == 'car':            
             if len( self.__available_cars ) == 0:
                 print('Sorry no cars is available')
@@ -34,8 +41,13 @@ class RideManager:
                     if car.status == 'available':
                         car.status = 'unavailable'
                         self.__available_cars.remove(car)
-                        rider.start_a_trip(fare)
-                        print('find a match for you for', fare) 
+                        trip_info = f'Match for {rider.name} for fare : {fare} with {car.driver.name} started : {rider.location } to : {destination}'
+                        rider.start_a_trip(fare, trip_info)
+                        car.driver.start_a_trip( destination, fare*0.8 , trip_info)                        
+                        self.__income += fare * 0.2
+                        self.__trip_history.append(trip_info)
+                        print(trip_info) 
+
                         return True
 
             print('looping done')
