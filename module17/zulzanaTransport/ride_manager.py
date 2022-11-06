@@ -43,7 +43,7 @@ class RideManager:
                         self.__available_cars.remove(car)
                         trip_info = f'Match for {rider.name} for fare : {fare} with {car.driver.name} started : {rider.location } to : {destination}'
                         rider.start_a_trip(fare, trip_info)
-                        car.driver.start_a_trip( destination, fare*0.8 , trip_info)                        
+                        car.driver.start_a_trip( rider.location, destination, fare*0.8 , trip_info)                        
                         self.__income += fare * 0.2
                         self.__trip_history.append(trip_info)
                         print(trip_info) 

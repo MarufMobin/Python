@@ -83,6 +83,7 @@ class Driver(User):
         self.license = license
         self.valid_driver = license_authority.validate_license(email, license)
         self.earning = 0
+        self.vehicle = None
     
     def take_driving_test(self):
         result = license_authority.take_driving_test(self.email)
@@ -97,24 +98,25 @@ class Driver(User):
     def register_a_vehicle(self, vehicle_type, license_plate, rate ):
         if self.valid_driver is True:
             if vehicle_type == 'car':
-                new_vehicle = Car(vehicle_type, license_plate, rate, self)
-                uber.add_a_vehicle( vehicle_type,new_vehicle )
+                self.vehicle = Car(vehicle_type, license_plate, rate, self)
+                uber.add_a_vehicle( vehicle_type, self.vehicle )
 
             elif vehicle_type == 'bike':
-                new_vehicle = Bike( vehicle_type, license_plate, rate , self )
-                uber.add_a_vehicle( vehicle_type,new_vehicle)
+                self.vehicle = Bike( vehicle_type, license_plate, rate , self )
+                uber.add_a_vehicle( vehicle_type, self.vehicle)
 
             else :
-                new_vehicle = Cng(vehicle_type, license_plate, rate, self )
-                uber.add_a_vehicle( vehicle_type, new_vehicle )
+                self.vehicle = Cng(vehicle_type, license_plate, rate, self )
+                uber.add_a_vehicle( vehicle_type, self.vehicle )
 
         else:
             # print('You are not a valid driver')
             pass 
 
-    def start_a_trip(self, destination, fare, trip_info ):
+    def start_a_trip(self, start, destination, fare, trip_info ):
         self.earning += fare
         self.location = destination
+        self.vehicle.start_driving( start, destination )
         self.__trip_history.append(trip_info)
 
         
@@ -130,7 +132,7 @@ for i in range(0, 100):
     driver1.register_a_vehicle('car', randint( 10000, 99999 ), 10)
 
 
-print(uber.get_available_cars())
+# print(uber.get_available_cars())
 uber.find_a_vahicle(rider1,'car', randint(1, 100))
 uber.find_a_vahicle(rider1,'car', randint(1, 100))
 uber.find_a_vahicle(rider1,'car', randint(1, 100))
@@ -138,3 +140,4 @@ uber.find_a_vahicle(rider1,'car', randint(1, 100))
 
 
 print(rider1.get_trip_history())
+print(uber.total_income())
