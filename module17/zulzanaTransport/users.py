@@ -3,6 +3,8 @@ from brta import BRTA
 from vehicles import Car, Bike, Cng
 from ride_manager import uber
 from random import random,randint
+import threading 
+
 
 license_authority = BRTA()
 
@@ -71,6 +73,7 @@ class Rider( User ):
         return self.__trip_history
 
     def start_a_trip( self, fare, trip_info ):
+        print(f'A trip started for {self.name}')
         self.balance -= fare
         self.__trip_history.append(trip_info)
     
@@ -116,7 +119,12 @@ class Driver(User):
     def start_a_trip(self, start, destination, fare, trip_info ):
         self.earning += fare
         self.location = destination
-        self.vehicle.start_driving( start, destination )
+        # Started thread 
+        trip_thread = threading.Thread( target=self.vehicle.start_driving , args=(start, destination, ))
+
+        trip_thread.start()
+
+        # self.vehicle.start_driving( start, destination )
         self.__trip_history.append(trip_info)
 
         
@@ -125,6 +133,8 @@ class Driver(User):
 rider1 = Rider('rider1', 'rider1@gmail.com', 'rider1', randint(0, 30), 1000 )
 rider2 = Rider('rider2', 'rider2@gmail.com', 'rider2', randint(0, 30), 5000 )
 rider3 = Rider('rider3', 'rider3@gmail.com', 'rider3', randint(0, 30), 5000 )
+rider4 = Rider('rider4', 'rider4@gmail.com', 'rider4', randint(0, 30), 5000 )
+rider5 = Rider('rider5', 'rider5@gmail.com', 'rider5', randint(0, 30), 5000 )
 
 for i in range(0, 100):
     driver1 = Driver(f'driver{i}', f'driver{i}@gmail.com', f'driver{i}', randint(0, 100), randint(1000, 9999) )
@@ -134,9 +144,10 @@ for i in range(0, 100):
 
 # print(uber.get_available_cars())
 uber.find_a_vahicle(rider1,'car', randint(1, 100))
-uber.find_a_vahicle(rider1,'car', randint(1, 100))
-uber.find_a_vahicle(rider1,'car', randint(1, 100))
-uber.find_a_vahicle(rider1,'car', randint(1, 100))
+uber.find_a_vahicle(rider2,'car', randint(1, 100))
+uber.find_a_vahicle(rider3,'car', randint(1, 100))
+uber.find_a_vahicle(rider4,'car', randint(1, 100))
+uber.find_a_vahicle(rider5,'car', randint(1, 100))
 
 
 print(rider1.get_trip_history())

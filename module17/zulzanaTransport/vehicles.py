@@ -35,7 +35,7 @@ class Car(Vehicle):
         distance = abs( start - destination )
         for i in range( 0, distance ):
             time.sleep(0.5)
-            print(f'Driving : {self.license_plate} current possition {i} of {distance}')
+            print(f'Driving : {self.license_plate} current possition {i} of {distance} \n')
         self.trip_finished()
     
     def trip_finished(self):
