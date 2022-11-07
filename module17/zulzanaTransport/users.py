@@ -2,7 +2,7 @@ import hashlib
 from brta import BRTA
 from vehicles import Car, Bike, Cng
 from ride_manager import uber
-from random import random,randint
+from random import random,randint, choice
 import threading 
 
 
@@ -100,6 +100,7 @@ class Driver(User):
 
     def register_a_vehicle(self, vehicle_type, license_plate, rate ):
         if self.valid_driver is True:
+
             if vehicle_type == 'car':
                 self.vehicle = Car(vehicle_type, license_plate, rate, self)
                 uber.add_a_vehicle( vehicle_type, self.vehicle )
@@ -136,18 +137,19 @@ rider3 = Rider('rider3', 'rider3@gmail.com', 'rider3', randint(0, 30), 5000 )
 rider4 = Rider('rider4', 'rider4@gmail.com', 'rider4', randint(0, 30), 5000 )
 rider5 = Rider('rider5', 'rider5@gmail.com', 'rider5', randint(0, 30), 5000 )
 
+vehicle_types = ['car', 'bike', 'cng']
 for i in range(0, 100):
     driver1 = Driver(f'driver{i}', f'driver{i}@gmail.com', f'driver{i}', randint(0, 100), randint(1000, 9999) )
     driver1.take_driving_test()
-    driver1.register_a_vehicle('car', randint( 10000, 99999 ), 10)
+    driver1.register_a_vehicle( choice( vehicle_types ), randint( 10000, 99999 ), 10)
 
 
-# print(uber.get_available_cars())
-uber.find_a_vahicle(rider1,'car', randint(1, 100))
-uber.find_a_vahicle(rider2,'car', randint(1, 100))
-uber.find_a_vahicle(rider3,'car', randint(1, 100))
-uber.find_a_vahicle(rider4,'car', randint(1, 100))
-uber.find_a_vahicle(rider5,'car', randint(1, 100))
+print(uber.get_available_bikes())
+uber.find_a_vahicle(rider1, choice(vehicle_types) , randint(1, 100))
+uber.find_a_vahicle(rider2, choice(vehicle_types) , randint(1, 100))
+uber.find_a_vahicle(rider3, choice(vehicle_types) , randint(1, 100))
+uber.find_a_vahicle(rider4, choice(vehicle_types) , randint(1, 100))
+uber.find_a_vahicle(rider5, choice(vehicle_types) , randint(1, 100))
 
 
 print(rider1.get_trip_history())
