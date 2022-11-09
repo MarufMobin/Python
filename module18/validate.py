@@ -21,5 +21,5 @@ class Person:
         self.age = age
     def __repr__(self) -> str:
         return f"{self.name} {self.phone} {self.age}"    
-user = Person('Rakibullah', '01323434345',21)
+user = Person('Rakibullah', '01323434345',11)
 print(user)
