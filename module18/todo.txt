@@ -1,5 +1,5 @@
 1. Attributes Validation using asset
 2. Dynamic Attributes
-3. Create Classes from json in files 
+3. Create objects from json in files 
 4. Multiple inheritance and MRO( Method Resolution Order )
 5. Duck type 
