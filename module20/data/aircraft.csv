@@ -1,0 +1,21 @@
+code,type,units,manufacturer,range
+A319,jet,metric,Airbus,3750
+A320,jet,metric,Airbus,12000
+A321,jet,metric,Airbus,12000
+A330,jet,metric,Airbus,13430
+737,jet,imperial,Boeing,5600
+747,jet,imperial,Boeing,9800
+757,jet,imperial,Boeing,7222
+767,jet,imperial,Boeing,7130
+777,jet,imperial,Boeing,9700
+BAE146,turboprop,metric,BAE,2909
+DC8,jet,imperial,Douglas,4800
+F50,turboprop,metric,Fokker,2055
+MD11,jet,imperial,McDonallDouglas,12670
+A400M,turboprop,metric,Airbus,3298
+C212,turboprop,metric,Airbus,1811
+V22,turboprop,imperial,Boeing ,1622
+BB1,helicopter,imperial,Bell Boeing,1011
+BA10,helicopter,imperial,Bell Agusta,852
+SIS99,helicopter,imperial,Sikorsky,808
+SAH,helicopter,imperial,Sud Aviation,808
