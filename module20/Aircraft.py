@@ -3,7 +3,7 @@ class Aircraft:
         self.make = make
         self.code = code 
         self.type = typ
-        self.flight_range = self.flight_range
+        self.flight_range = flight_range
 
     def get_make( self ):
         return self.make
