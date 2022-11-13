@@ -1,5 +1,6 @@
 import csv
 from Airport import Airport 
+from math import radians, sin , cos, atan2, sqrt
 
 class AllAirports:
     def __init__(self) -> None:
@@ -45,6 +46,17 @@ class AllAirports:
             for airport in airports.items():
                 print(airport)
                 
+    def get_distance_between_two_airports( self, lat1, lon1, lat2, lon2 ):
+        radius = 6371
+        lat_diff = radians( lat1 - lat2 )
+        lon_diff = radians( lon1 - lon2 )
 
+        a = (sin( lat_diff / 2) * sin( lat_diff / 2) +
+         cos(radians(lat1)) * cos(radians(lat2)) *
+         sin( lon_diff / 2) * sin( lon_diff / 2))
+        
+        c = 2 * atan2(sqrt(a), sqrt(1 - a))
+        distance = radius * c
+        return distance
 
 AllAirports()
