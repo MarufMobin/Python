@@ -9,14 +9,14 @@ class AllAirports:
 
     def load_airports_data( self, file_path ):
         airports = {}
-        currency_rate = {}
+        currency_rates = {}
         country_currency = {}
 
         # get Currency name <-----> rate 
         with open('./data/currencyrates.csv', 'r') as file:
             lines = csv.reader(file)
             for line in lines:
-                currency_rate[line[1]] = line[2]
+                currency_rates[line[1]] = line[2]
         file.close()
         
         # dictionary country <-----> Currency name 
@@ -35,8 +35,16 @@ class AllAirports:
             try:
                 for line in lines:
                     country = line[3]
+                    
+                    if country not in country_currency:
+                        continue
+
                     currency = country_currency[country]
-                    rate = currency_rate[currency]
+
+                    if currency not in currency_rates:
+                        continue
+
+                    rate = currency_rates[currency]
 
                     airports[line[4]] = Airport( line[4], line[1], line[2], line[3], line[6], line[7], rate )
             except KeyError as e:
