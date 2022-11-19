@@ -31,4 +31,7 @@ while True:
         os.remove(object_path)
         os.remove(object_path.split('/')[-1].split('\\')[-1])
 
+
+# [ 22-1 Introduction To The Module ] [ 22-2 Planning The Solution ]  [22-3 Trigger The Event] [ 22-4 Name Changes ] [ 22-5 Move To Detination ] [ 22-6 True Event Driven Program ]
+
         
