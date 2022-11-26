@@ -9,4 +9,10 @@ soup = BeautifulSoup( text, 'lxml')
 table = soup.find('table', class_='wikitable')
 rows = table.find_all('tr')[1:]
 
-print(rows) 
+for row in rows:
+    data = row.find_all(['th','td'])
+    try:
+        # print(data[0].a.text)
+        print(data[-1].text)
+    except:
+        pass  
