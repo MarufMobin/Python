@@ -32,4 +32,33 @@ arrayMax = addition.flatten().max()
 # print(division)
 # print(addition,back_to_one)
 # print(arraySum)
-print(arrayMax)
+# print(arrayMax)
+
+# -> Find size or how many element are of array 
+# print(three_d.size)
+# -> Find how many dimantion are exicts in array
+# print(three_d.ndim)
+# -> Numbers of elements or items
+# print(three_d.size)
+# -> find shape for array 
+# print( three_d.shape )
+# print(two_d.shape)
+# -> array Data type and change to data type
+# print(two_d.dtype)
+
+print(back_to_one.dtype)
+print(back_to_one)
+diff_type = back_to_one.astype('f')
+print(diff_type.dtype)
+print(diff_type)
+back_to_one_again = np.copy( back_to_one )
+print( back_to_one_again.dtype )
+print( back_to_one_again )
+
+# -> Array Shorting 
+shorted = np.sort(back_to_one)
+print(shorted)
+# -> multy dimantional array shorting 
+shortedMultidimantional = np.sort( three_d )
+print(shortedMultidimantional)
+
