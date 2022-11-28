@@ -16,4 +16,15 @@ X = digits.data
 Y = digits.target
 X_train, X_test, Y_train, Y_test = train_test_split( X, Y , test_size=0.20 )
 
-print(X_train.shape)
+# print(X_train.shape)
+# print(X_test.shape)
+
+model = LogisticRegression()
+model.fit( X_train, Y_train)
+print('target of the value of the test ', digits.target[1700])
+
+result = model.predict([digits.data[1700]])
+print('test result', result)
+
+
+
