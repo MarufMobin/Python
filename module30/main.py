@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
 datas = pd.read_csv('HR_comma_sep.csv')
 # Step 1 : -> print all Data 
 # print(datas)
@@ -36,7 +38,17 @@ marged = pd.concat( [ datas, dummies ], axis='columns' )
 # print(marged) 
 
 # Step 8 -> Drop unnecessary Columns 
-final_data = marged.drop(['Department', 'technical'], axis='columns')
-print( 'Department' in list(final_data.columns))
-print( 'Department' in list(marged.columns))
 
+final_data = marged.drop(['Department', 'technical'], axis='columns')
+# print( 'Department' in list(final_data.columns))
+# print( 'Department' in list(marged.columns))
+
+# print(list(final_data.columns))
+
+# plt.scatter( x = final_data.salary, y = final_data.left )
+
+# plt.scatter( x = final_data.satisfaction_level, y = final_data.left )
+
+plt.scatter( x = final_data.time_spend_company, y = final_data.left )
+
+plt.show()
