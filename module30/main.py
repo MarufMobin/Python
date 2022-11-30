@@ -25,4 +25,18 @@ clean_up_values = {
 }
 
 datas.replace( clean_up_values, inplace=True )
-print(datas)
+# print(datas)
+
+# Step 6 -> Get dummies for the Department 
+dummies = pd.get_dummies( datas.Department )
+# print(dummies)
+
+# Step 7 -> Merge dummies ( dummy columns ) with the original data 
+marged = pd.concat( [ datas, dummies ], axis='columns' )
+# print(marged) 
+
+# Step 8 -> Drop unnecessary Columns 
+final_data = marged.drop(['Department', 'technical'], axis='columns')
+print( 'Department' in list(final_data.columns))
+print( 'Department' in list(marged.columns))
+
