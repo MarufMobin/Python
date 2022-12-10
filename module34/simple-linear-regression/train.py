@@ -21,6 +21,10 @@ headers_name = data.columns.values
 X = data[headers_name[0]]
 Y = data[headers_name[1]]
 
+# Data Reduce for train are here 
+X = X.truncate( 0, 4899 )
+Y = Y.truncate( 0, 4899 )
+
 X_mean = calculate_mean( X )
 Y_mean = calculate_mean( Y )
 

@@ -10,4 +10,3 @@
 
     Linear Regration : There are many independent data and only one are dependent data it's called Linear Regration and that dependent data are ans
 """
-
