@@ -21,13 +21,30 @@ with open("./trained/trained_data.txt") as file:
 # print( converted )
 m = converted["m"]
 c = converted["c"]
+Y_mean = converted["y_mean"]
 
 Y_predicted_list = []
 
-for val in X:
-    Y_predicted = ( m * val ) + c
-    Y_predicted_list.append( Y_predicted )
+r_upper = 0
+r_lower = 0
 
-plt.scatter( X, Y, color="g")
-plt.plot( X, Y_predicted_list, color="r")
-plt.show()
+for indx in  range( len(X) ):
+    Y_predicted = ( m * X[indx + 4900 ] ) + c
+    Y_predicted_list.append( Y_predicted )
+    r_upper += math.pow( (Y[indx+4900] - Y_predicted ), 2 )
+    r_lower += math.pow( (Y[indx+4900] - Y_mean ), 2 )
+
+    # print(X[indx+4900])
+
+
+r_square = 1 - ( r_upper / r_lower )
+print( r_square )
+
+# plt.scatter( X, Y, color="g")
+# plt.plot( X, Y_predicted_list, color="r")
+# plt.show()
+
+
+inp = int( input("Enter year of experience : ") )
+predicted = ( m * inp ) + c
+print(f"Predicted Salary : {predicted}")

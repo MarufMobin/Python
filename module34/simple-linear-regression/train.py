@@ -42,6 +42,7 @@ c = Y_mean - ( m * X_mean )
 trained_data = {}
 trained_data["m"] = m
 trained_data["c"] = c 
+trained_data["y_mean"] = Y_mean 
 
 with open( "./trained/trained_data.txt", 'w' ) as file:
     file.write( json.dumps( trained_data ) )
